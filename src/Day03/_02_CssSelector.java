@@ -37,16 +37,4 @@ public class _02_CssSelector extends BaseDriver {
 
         waitAndQuit();
     }
-
-    //TODO : /**
-    //         * Go to "https://formsmarts.com/form/yu?mode=h5"
-    //         * Select Business
-    //         * Click on Discover XYZ and select Online Advertising
-    //         * Select Every Day
-    //         * Select Good
-    //         * Click on XYZ and select the 3rd option
-    //         *
-    //         * Use Css Selector only
-    //         *
-    //         * **/
 }

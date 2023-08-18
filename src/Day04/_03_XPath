@@ -1,0 +1,59 @@
+XPATH
+
+Pros
+-> Can locate any elements. If you know Xpath you don't need other locators. It is the most efficient one.
+-> Can locate an element with its visible text
+-> Can locate an element by index
+-> Can locate child or parent of an element
+
+Cons
+-> It works slower than the other locators. SO it should be the last option.
+
+//tagName[@attributeName="value"] -> Relative Xpath
+html/body/form/input              -> Absolute Xpath(Never use it. Because if developers add a new element between your elements this locator wouldn't work)
+
+Interview Question: How many xpaths are there? Answer: 2 Relative and Absolute
+Interview Question: Which one do you use and why? Answer: Relative. Because if developers add a new element between your elements this locator wouldn't work
+
+//span[text()="Business"]                                   -> Gives the element that has "Business" as a displayed text
+//option[starts-with(@value,"I'm using XYZ for a month")]   -> Gives the element whose value attribute starts with I'm using XYZ for a month
+//option[ends-with(@value,"more")]                          -> Gives the element whose value attribute ends with "more"
+//option[contains(@value,"month")]                          -> Gives the element whose value attribute contains "month"
+//option[contains(text(),"month")]                          -> Gives the element whose displayed text contains "month"
+//input[@type="radio" and @value="Business"]                -> Gives the input element that meet both conditions(type=radio, value=Business)
+//input[@type="radio" or @value="Business"]                 -> Gives the input elements that meet either of the conditions
+
+
+<div id="username">
+
+    <span> Hello 1 </span>
+    <span> Hello 2 </span>
+    <span> Hello 3 </span>
+    <span> Hello 4 </span>
+
+    <div>
+	    <img src="image.png"/>
+        <input type="text"/>
+    </div>
+
+</div>
+<label> Hello </label>
+
+//div[@id="username"]/span                           -> Searches within the children of the div and gives the first span child of the div
+//div[@id="username"]//img                           -> Searches within the entire family and gives the first img element
+//div[@id="username"]/img                            -> Searches within the children of the div and since we don't have an img child it throws NoSuchElement Exception
+//div[@id="username"]//span/following-sibling::span  -> Gives the second span element(first sibling of span element)
+//div[@id="username"]//span/following::span          -> Gives all the span elements after the first one
+//img[@src="image.png"]/..                           -> Gives the parent of the img tag
+//img[@src="image.png"]/parent::div                  -> Gives the same element with above
+//img[@src="image.png"]/../..                        -> Gives the grand parent of the img element
+(//input[@type="radio"])[3]                          -> Gives the 3rd input element that has same type attribute
+
+
+
+
+
+
+
+
+
