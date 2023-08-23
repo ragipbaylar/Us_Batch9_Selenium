@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 public class _03_SelectClass extends BaseDriver {
     /**
      * What is Select Class?
-     * It is a class that allows us to handle select tags
+     * It is a class that allows us to handle select tags (dropdown menu).
+     * Note: Some dropdown menus might not be select tag
      * We create a Select object and then we use this object to handle select elements
      **/
 
@@ -18,7 +19,8 @@ public class _03_SelectClass extends BaseDriver {
     public void test1() {
         driver.get("https://formsmarts.com/form/yu?mode=h5");
         MyMethods.myWait(2);
-        WebElement discoverXYZ = driver.findElement(By.id("u_oAd_4588"));
+
+        WebElement discoverXYZ = driver.findElement(By.id("u_Ccq_4588"));
 
         Select select = new Select(discoverXYZ);
 //        select.selectByVisibleText("Referred by Existing Customer");
@@ -26,6 +28,8 @@ public class _03_SelectClass extends BaseDriver {
 
         int randomIndex = ((int)(Math.random()*5))+1;
         select.selectByIndex(randomIndex);
+
+        waitAndQuit();
 
     }
 
