@@ -1,0 +1,47 @@
+What have we used so far for wait?
+- Thread.sleep() -> It is a Java method (not Selenium method). It stops the code for the specified amount of time
+no matter what.
+Thread.sleep(5000) -> stops the code for 5 seconds. It just waits. There is no condition for it.
+
+Avoid using it. Don't tell anyone you use it to make your code wait.
+------------------------------------------------------------------------------------
+Waits in Selenium
+
+1-) Page Load Timeout
+
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        // It waits until our computer downloads all necessary files from the server
+        // If it cannot download them in specified time Selenium throws an exception
+        // that means there is a problem with the server side
+
+2-) Implicitly Wait
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        // Waits until the browser translates all the document downloaded and converts them to html codes.
+        // If it cannot convert them into HTML in specified time period Selenium throws an exception
+        // that means your application is not compatible with the browser
+
+3-) Explicitly Wait
+
+        // It stops the code until a certain condition is met
+        // Allows us to wait only for one specific element or specific condition
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions(Our Condition));
+
+titleIs                         -> Waits until the title of the page becomes ...
+titleContains                   ->
+urlToBe                         -> Waits until the current url becomes ...
+urlContains                     ->
+visibilityOfElementLocated      -> Waits until the element with given locator is visible
+invisibilityOfElementLocated    -> opposite of the previous
+elementToBeClickable            -> waits until an element becomes clickable
+elementToBeSelected             -> waits until an element becomes selected
+textToBe                        -> waits until text of an element becomes ...
+alertIsPresent                  -> waits until alert is present on the page
+visibilityOfAllElements         -> waits until all the elements with the same locator are visible
+                                    mostly used with driver.findElements()
+
+numberOfElementsToBe            -> waits until number of elements that have the same locator to be a specific number
+numberOfElementsToBeLessThan    -> waits until number of elements that have the same locator to be less than a specific number
+numberOfElementsToBeMoreThan    -> waits until number of elements that have the same locator to be more than a specific number
