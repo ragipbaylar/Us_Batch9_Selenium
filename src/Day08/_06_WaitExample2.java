@@ -41,16 +41,4 @@ public class _06_WaitExample2 extends BaseDriver {
 
         waitAndQuit();
     }
-
-    //Homework
-
-    /**
-     * Go to "https://www.demoblaze.com/index.html"
-     * Click on Samsung Galaxy s6
-     * Click on "Add to Cart"
-     * Close the alert
-     * Click on Product Store to go back to the main page
-     * Verify that you are on the main page
-     **/
-
 }
