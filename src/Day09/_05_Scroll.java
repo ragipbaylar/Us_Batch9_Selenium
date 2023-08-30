@@ -37,9 +37,10 @@ public class _05_Scroll extends BaseDriver {
 
         js.executeScript("window.scrollTo(0, document.body.scrollHeight);"); // scrolls down to the end of the page
 
+        MyMethods.myWait(2);
+        js.executeScript("window.scrollTo(0, 0)"); // Takes us to the top of the page
+
         waitAndQuit();
-
-
     }
 
 }
